@@ -166,11 +166,6 @@ else:
 
 if configs['tuning-level'] == 'fast':
     configs['sync-binlog']=0
-
-if configs['bind-address'] is None:
-    config['bind-address'] = "bind-address = 0.0.0.0"
-else:
-    configs['bind-address'] = 'bind-address = %s' % configs['bind-address']
    
 if configs['max-connections'] == -1:
     configs['max-connections'] = '# max_connections = ?'
@@ -240,7 +235,7 @@ skip-external-locking
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
-%(bind-address)s
+bind-address = %(bind-address)s
 #
 # * Fine Tuning
 #
